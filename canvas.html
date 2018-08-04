@@ -14,8 +14,15 @@
   <script type="text/javascript">
     window.onload = function(){
       var theCanvas = document.getElementById('Canvas1');
-      theCanvas.width = 150;
-      theCanvas.height = 150;
+      theCanvas.width = 300;
+      theCanvas.height = 200;
+      if(theCanvas && theCanvas.getContext){
+        var ctx = theCanvas.getContext("2d");
+        if(ctx){
+          ctx.fillStyle = "#dfd";
+          ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+        }
+      }
     }
   </script>
 </head>
