@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Canvas - уроци от Linda.com</title>
   <style media="screen">
+    canvas{border: 1px solid red;}
     #Canvas1{
       border: dotted 3px black;
       background: lightGray;
@@ -14,7 +15,7 @@
   <script type="text/javascript">
     window.onload = function(){
       var theCanvas = document.getElementById('Canvas1');
-      theCanvas.width = 300;
+      theCanvas.width = 500;
       theCanvas.height = 200;
       if(theCanvas && theCanvas.getContext){
         var ctx = theCanvas.getContext("2d");
@@ -28,14 +29,120 @@
           ctx.strokeRect(20, 20, 100, 100);
         }
       }
+
+      var canvas2 = document.getElementById("canvas2");
+      ctx = canvas2.getContext("2d");
+      ctx.strokeRect(1, 1, ctx.canvas.width-1, ctx.canvas.height-1);
+
+      ctx.strokeStyle = "blue";
+      ctx.lineWidth = 5;
+      ctx.strokeRect(25, 25, 100, 125);
+
+      ctx.fillStyle = "green";
+      ctx.fillRect(175, 25, 100, 125);
+
+      ctx.fillStyle = "yellow";
+      ctx.strokeStyle = "red";
+      ctx.lineWidth = 10;
+      ctx.fillRect(325, 25, 100, 125);
+      ctx.strokeRect(325, 25, 100, 125);
+
+      ctx.clearRect(15, 75, 450, 50);
+
+
+      // чертае 10 линии с разлина широчина
+      var canvasLines = document.getElementById('canvasLines');
+      ctx = canvasLines.getContext('2d');
+      for(var i = 0; i < 10; i++){
+        ctx.beginPath();
+        ctx.lineWidth = i + 1;
+        ctx.moveTo(25, 25 + i * 15);
+        ctx.lineTo(475, 25 + i * 15);
+        ctx.stroke();
+      }
+
+
+      // показва опциите на lineCap
+      var canvas3 = document.getElementById('canvas3');
+      ctx = canvas3.getContext('2d');
+      //draw the guidelines
+      ctx.strokeStyle = 'red';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(50, 25);
+      ctx.lineTo(50, 175);
+      ctx.moveTo(450, 25);
+      ctx.lineTo(450, 175);
+      ctx.stroke();
+
+      // draw line using each lineCap
+      ctx.lineWidth = 25;
+      ctx.strokeStyle = 'black';
+      ctx.lineCap = 'butt';
+      ctx.beginPath();
+      ctx.moveTo(50, 50);
+      ctx.lineTo(450, 50);
+      ctx.stroke();
+      ctx.lineCap = 'round';
+      ctx.beginPath();
+      ctx.moveTo(50, 100);
+      ctx.lineTo(450, 100);
+      ctx.stroke();
+      ctx.lineCap = 'square';
+      ctx.beginPath();
+      ctx.moveTo(50, 150);
+      ctx.lineTo(450, 150);
+      ctx.stroke();
+
+
+      // demonstrate each settings of lineJoin
+      var canvas4 = document.getElementById('canvas4');
+      ctx = canvas4.getContext('2d');
+
+      ctx.lineWidth = 15;
+      ctx.strokeStyle = 'black';
+      ctx.lineJoin = 'round';
+      ctx.beginPath();
+      ctx.moveTo(25, 150);
+      ctx.lineTo(75, 50);
+      ctx.lineTo(125, 150);
+      ctx.stroke();
+      ctx.lineJoin = 'bevel';
+      ctx.beginPath();
+      ctx.moveTo(175, 150);
+      ctx.lineTo(225, 50);
+      ctx.lineTo(275, 150);
+      ctx.stroke();
+      ctx.lineJoin = 'miter';
+      ctx.miterLimit = 3;
+      ctx.beginPath();
+      ctx.moveTo(325, 150);
+      ctx.lineTo(375, 50);
+      ctx.lineTo(425, 150);
+      ctx.stroke();
+
+
     }
   </script>
 </head>
 <body>
-<h1>First canvas example</h1>
-<p>This document contains our first canvas example</p>
+
+<h2>First canvas example</h2>
 <canvas id="Canvas1" width="400" height="300">
   Този текст се покзва, само ако браузъра не поддържа canvas (Fallback content)
-</canvas>
+</canvas><br/>
+
+<h2>Чертане на правоъгълници</h2>
+<canvas id="canvas2" width="500" height="200"></canvas>
+
+<h2>Drawing Lines</h2>
+<canvas id="canvasLines" width="500" height="200"></canvas>
+
+<h2>Diferent settings for lineCap</h2>
+<canvas id="canvas3" width="500" height="200"></canvas>
+
+<h2>Diferent settings for lineJoin</h2>
+<canvas id="canvas4" width="500" height="200"></canvas>
+
 </body>
 </html>

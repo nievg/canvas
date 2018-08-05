@@ -9,6 +9,9 @@
 </head>
 <body>
   <h1>Canvas notes</h1>
+
+
+  <h2>Свързване на canvas към JS</h2>
   <p>
      <span class="kw">var</span>
      <span class="htm">theCanvas</span>
@@ -20,6 +23,29 @@
     ctx =
     <span class="htm">theCanvas</span>.<span class="fnc">getContext</span>(<span class="val">"2d"</span>);
   </p>
+
+  <h2>Свойства на canvas</h2>
+  <p>
+    theCanvas.<span class="prop">width</span> = <span class="val">400</span>;
+    - задава широчината платното
+  </p>
+
+  <p>
+      theCanvas.<span class="prop">height</span> = <span class="val">200</span>;
+      - задава височината платното
+  </p>
+
+  <p>
+    ctx.<span class="prop">canvas.width</span>
+    - съхранява широчината на платното
+  </p>
+
+  <p>
+    ctx.<span class="prop">canvas.height</span>
+    - съхранява височина на платното
+  </p>
+
+  <h2>Цвят на контур и запълване, широчина на линия</h2>
   <p>
      ctx.<span class="prop">strokeStyle</span> =
      <span class="val">"#ccc"</span>
@@ -38,7 +64,8 @@
     - задава широчина на линията
   </p>
 
-  <p> </p>
+
+  <h2>Рисуване на правоъгълник</h2>
   <p>
     ctx.<span class="prop">clearRect(x, y, w, h)</span>
     - трие съдържанието в границите на правоъгълника
@@ -51,6 +78,55 @@
     ctx.<span class="prop">strokeRect(x, y, w, h)</span>
     - чертае правоъгълник
   </p>
-  <p></p>
+
+
+  <h2>Рисуване на линии</h2>
+
+
+  <p>
+    ctx.<span class="prop">lineWidth</span>
+    = <span class="val">5</span>
+    - задава широчина на линията в пиксели
+  </p>
+
+  <p>
+    ctx.<span class="prop">lineCap</span>
+    = <span class="val">"butt/round/square";</span>
+    - указва как да завършва линията butt is default
+  </p>
+
+  <p>
+    ctx.<span class="prop">lineJoin</span>
+    = <span class="val">"round/bevel/miter</span>(default)<span class="val">";</span>
+    - указва как се свързват краищата на линиите
+  </p>
+
+  <p>
+    ctx.<span class="prop">miterLimit</span>
+    = <span class="val">10;</span>
+    - указва граница на скосяване 10 is default value
+  </p>
+
+  <p>
+    ctx.<span class="prop">beginPath()</span>
+    - с това започва изчертаване на линия
+  </p>
+
+  <p>
+    ctx.<span class="prop">moveTo(x, y)</span>
+    - премества молива в указаната точка
+  </p>
+
+  <p>
+    ctx.<span class="prop">lineTo(x, y)</span>
+    - чертае линия от текущата точка до точката указана с x и y
+  </p>
+
+  <p>
+    ctx.<span class="prop">stroke()</span>
+    - изчертава всичко зададено след beginPath()
+  </p>
+
+
 </body>
 </html>
