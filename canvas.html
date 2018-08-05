@@ -19,8 +19,13 @@
       if(theCanvas && theCanvas.getContext){
         var ctx = theCanvas.getContext("2d");
         if(ctx){
-          ctx.fillStyle = "#dfd";
+          ctx.fillStyle = "#aaa";
           ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+          ctx.fillStyle = "#dfd";
+          ctx.fillRect(20, 20, 100, 100);
+          ctx.lineWidth = 5;
+          ctx.strokeStyle = "rgba(255, 192, 192, 0.7)";
+          ctx.strokeRect(20, 20, 100, 100);
         }
       }
     }
