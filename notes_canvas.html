@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="notes_canvas.css">
+  <title>Canvas notes</title>
+</head>
+<body>
+  <h1>Canvas notes</h1>
+  <p>
+     <span class="kw">var</span>
+     <span class="htm">theCanvas</span>
+      =
+     <span class="htm">document</span>.<span class="fnc">getElementById</span>(<span class="val">'Canvas1'</span>);
+  </p>
+  <p>
+    <span class="kw">var</span>
+    ctx =
+    <span class="htm">theCanvas</span>.<span class="fnc">getContext</span>(<span class="val">"2d"</span>);
+  </p>
+  <p>
+     ctx.<span class="prop">strokeStyle</span> =
+     <span class="val">"#ccc"</span>
+     - задава цвят на контура. Стойността трябва да е кавички
+  </p>
+
+  <p>
+     ctx.<span class="prop">fillStyle</span> =
+     <span class="val">"rgba(r, g, b, a)"</span>
+     - задава цвят на запълването.
+  </p>
+
+  <p>
+    ctx.<span class="prop">lineWidth</span> =
+    <span class="val">5</span>
+    - задава широчина на линията
+  </p>
+
+  <p> </p>
+  <p>
+    ctx.<span class="prop">clearRect(x, y, w, h)</span>
+    - трие съдържанието в границите на правоъгълника
+  </p>
+  <p>
+    ctx.<span class="prop">fillRect(x, y, w, h)</span>
+    - чертае запълнен провоъгълник
+  </p>
+  <p>
+    ctx.<span class="prop">strokeRect(x, y, w, h)</span>
+    - чертае правоъгълник
+  </p>
+  <p></p>
+</body>
+</html>
