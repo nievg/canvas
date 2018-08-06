@@ -6,6 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Canvas - уроци от Linda.com</title>
   <style media="screen">
+    *{margin:0; padding:0;}
+    h2{margin-top: 30px;}
+    body{background: #ccc; padding-left:20px;}
     canvas{border: 1px solid red;}
     #Canvas1{
       border: dotted 3px black;
@@ -121,6 +124,30 @@
       ctx.lineTo(425, 150);
       ctx.stroke();
 
+    //save() and restore()
+    var canvas5 = document.getElementById('canvas5');
+    ctx = canvas5.getContext('2d');
+    ctx.lineWidth = 10;
+    ctx.fillStyle = 'yellow';
+    ctx.strokeStyle = 'red';
+
+    ctx.save();
+    ctx.fillRect(25, 25, 100, 125);
+    ctx.strokeRect(25, 25, 100, 125);
+
+    ctx.lineWidth = 5;
+    ctx.fillStyle = 'blue';
+    ctx.strokeStyle = 'green';
+    ctx.fillRect(175, 25, 100, 125);
+    ctx.strokeRect(175, 25, 100, 125);
+
+    ctx.restore();
+    ctx.fillRect(325, 25, 100, 125);
+    ctx.strokeRect(325, 25, 100, 125);
+
+
+
+
 
     }
   </script>
@@ -143,6 +170,10 @@
 
 <h2>Diferent settings for lineJoin</h2>
 <canvas id="canvas4" width="500" height="200"></canvas>
+
+<h2>save() and restore()</h2>
+<canvas id="canvas5" width="500" height="200"></canvas>
+
 
 </body>
 </html>
