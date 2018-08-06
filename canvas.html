@@ -181,8 +181,8 @@
 
 
     //чертаене на контури
-    var canvas7 = document.getElementById('canvas7');
-    ctx = canvas7.getContext('2d');
+    var arcs = document.getElementById('arcs');
+    ctx = arcs.getContext('2d');
 
     ctx.strokeStyle = 'blue';
     ctx.fillStyle = 'red';
@@ -222,6 +222,97 @@
     ctx.lineTo(690, 175);
     ctx.fill();
 
+    //Криви на Безие
+    var bezier = document.getElementById('bezier');
+    ctx = bezier.getContext('2d');
+
+    ctx.strokeStyle = 'blue';
+    ctx.lineWidth = 5;
+
+    ctx.beginPath();
+    ctx.moveTo(20, 150);
+    ctx.bezierCurveTo(20, 50, 170, 50, 170, 100);
+    ctx.stroke();
+    //визиализация на контролните точки
+    bezierGuides(20, 150, 20, 50, 170, 50, 170, 100);
+
+    ctx.strokeStyle = 'green';
+    ctx.fillStyle = '#cfc';
+    ctx.lineWidth = 5;
+    ctx.beginPath();
+    ctx.moveTo(200, 80);
+    ctx.bezierCurveTo(230, 190, 350, 50, 350, 150);
+    ctx.fill();
+    ctx.stroke();
+    //визиализация на контролните точки
+    bezierGuides(200, 80, 230, 190, 350, 50, 350, 150);
+
+    ctx.strokeStyle = 'yellow';
+    ctx.fillStyle = 'rgba(255, 255, 204, 0.5)';
+    ctx.lineWidth = 5;
+    ctx.beginPath();
+    ctx.moveTo(400, 20);
+    ctx.bezierCurveTo(550, 144, 440, 180, 680, 150);
+    //ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+    //визиализация на контролните точки
+    bezierGuides(400, 20, 550, 144, 440, 180, 680, 150);
+
+    function bezierGuides(xs, ys, x1, y1, x2, y2, xe, ye){
+      //визиализация на контролните точки
+      ctx.save();
+      ctx.strokeStyle = 'red';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(xs, ys);
+      ctx.lineTo(x1, y1);
+      ctx.lineTo(x2, y2);
+      ctx.lineTo(xe, ye);
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    // Квадратични криви
+    var quadratic = document.getElementById('quadratic');
+    ctx = quadratic.getContext('2d');
+    //stroke a quadratic curve
+    ctx.strokeStyle = 'green';
+    ctx.fillStyle = '#cfc';
+    ctx.lineWidth = 5;
+    ctx.beginPath();
+    ctx.moveTo(20, 20)
+    ctx.quadraticCurveTo(400, 100, 250, 50);
+    ctx.quadraticCurveTo(30, 180, 200, 20)
+    ctx.fill();
+    //ctx.closePath();
+    ctx.stroke();
+
+    ctx.strokeStyle = 'yellow';
+    ctx.beginPath();
+    ctx.moveTo(400, 180)
+    ctx.quadraticCurveTo(440, 80, 600, 150)
+    ctx.stroke();
+
+    //визиализация на контролнaтa точкa
+    quadraticGuides(20, 20, 400, 100, 250, 50);
+    quadraticGuides(250, 50, 30, 180 ,200 ,20);
+    quadraticGuides(400, 180, 440, 80, 600, 150);
+
+    function quadraticGuides(xs, ys, xc, yc, xe, ye){
+      //визиализация на контролнaтa точкa
+      ctx.save();
+      ctx.lineWidth = 1;
+      ctx.strokeStyle = 'red';
+      ctx.beginPath();
+      ctx.moveTo(xs, ys);
+      ctx.lineTo(xc, yc);
+      ctx.lineTo(xe, ye);
+      ctx.stroke();
+      ctx.restore();
+    }
+
+
 
 
 
@@ -254,7 +345,13 @@
 <canvas id="canvas6" width="700" height="200"></canvas>
 
 <h2>Drawing paths(контури)</h2>
-<canvas id="canvas7" width="700" height="200"></canvas>
+<canvas id="arcs"    width="700" height="200"></canvas>
+
+<h2>Криви на Безие</h2>
+<canvas id="bezier"  width="700" height="200"></canvas>
+
+<h2>Квадратични крижи</h2>
+<canvas id="quadratic" width="700" height="200"></canvas>
 
 
 </body>
