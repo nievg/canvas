@@ -145,9 +145,84 @@
     ctx.fillRect(325, 25, 100, 125);
     ctx.strokeRect(325, 25, 100, 125);
 
-    //drawing gurves
+    //drawing arcs and paths
     canvas6 = document.getElementById('canvas6');
     ctx = canvas6.getContext('2d');
+
+    var r = Math.PI / 180;
+    ctx.lineWidth = 5;
+    ctx.fillStyle = 'red';
+    ctx.strokeStyle = 'blue';
+
+    ctx.beginPath();
+    ctx.arc(100, 100, 80, 0 * r, 60 * r, true);
+    ctx.stroke();
+
+    ctx.strokeStyle = 'red';
+    ctx.beginPath();
+    ctx.arc(100, 100, 80, Math.PI/6, Math.PI/4);
+    ctx.stroke();
+
+    ctx.strokeStyle = 'green';
+    ctx.beginPath();
+    ctx.arc(300, 100, 80, Math.PI/4, 5 * Math.PI/4);
+    ctx.closePath();
+    ctx.stroke();
+
+    ctx.fillStyle = '#ffc';
+    ctx.beginPath();
+    ctx.arc(300, 100, 80, 36 * r , 244 * r, true);
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.arc(520, 100, 90, 0 , 360 * r);
+    ctx.fill();
+    ctx.stroke();
+
+
+    //чертаене на контури
+    var canvas7 = document.getElementById('canvas7');
+    ctx = canvas7.getContext('2d');
+
+    ctx.strokeStyle = 'blue';
+    ctx.fillStyle = 'red';
+    ctx.lineWidth = 5;
+
+    //отворен контур без запълване
+    ctx.beginPath();
+    ctx.moveTo(20, 175);
+    ctx.lineTo(45, 25);
+    ctx.lineTo(120, 50);
+    ctx.lineTo(170, 175);
+    ctx.stroke();
+
+    //затворен контур без запълване
+    ctx.beginPath();
+    ctx.moveTo(200, 175);
+    ctx.lineTo(225, 25);
+    ctx.lineTo(300, 50);
+    ctx.lineTo(350, 175);
+    ctx.closePath();
+    ctx.stroke();
+
+    //oтворен контур със запълване
+    ctx.beginPath();
+    ctx.moveTo(375, 175);
+    ctx.lineTo(400, 25);
+    ctx.lineTo(475, 50);
+    ctx.lineTo(525, 175);
+    ctx.fill();
+    ctx.stroke();
+
+    //контур само със запълване
+    ctx.beginPath();
+    ctx.moveTo(540, 175);
+    ctx.lineTo(565, 25);
+    ctx.lineTo(640, 50);
+    ctx.lineTo(690, 175);
+    ctx.fill();
+
+
 
 
     }
@@ -175,8 +250,12 @@
 <h2>save() and restore()</h2>
 <canvas id="canvas5" width="500" height="200"></canvas>
 
-<h2>Drawing curves</h2>
-<canvas id="canvas6" width="500" height="200"></canvas>
+<h2>Drawing arcs(дъги) and paths(контури)</h2>
+<canvas id="canvas6" width="700" height="200"></canvas>
+
+<h2>Drawing paths(контури)</h2>
+<canvas id="canvas7" width="700" height="200"></canvas>
+
 
 </body>
 </html>
