@@ -98,7 +98,7 @@
       ctx.stroke();
 
 
-      // demonstrate each settings of lineJoin
+// demonstrate each settings of lineJoin
       var canvas4 = document.getElementById('canvas4');
       ctx = canvas4.getContext('2d');
 
@@ -124,7 +124,7 @@
       ctx.lineTo(425, 150);
       ctx.stroke();
 
-    //save() and restore()
+//save() and restore()
     var canvas5 = document.getElementById('canvas5');
     ctx = canvas5.getContext('2d');
     ctx.lineWidth = 10;
@@ -145,7 +145,7 @@
     ctx.fillRect(325, 25, 100, 125);
     ctx.strokeRect(325, 25, 100, 125);
 
-    //drawing arcs and paths
+//drawing arcs and paths
     canvas6 = document.getElementById('canvas6');
     ctx = canvas6.getContext('2d');
 
@@ -180,7 +180,7 @@
     ctx.stroke();
 
 
-    //чертаене на контури
+//чертаене на контури
     var arcs = document.getElementById('arcs');
     ctx = arcs.getContext('2d');
 
@@ -222,7 +222,7 @@
     ctx.lineTo(690, 175);
     ctx.fill();
 
-    //Криви на Безие
+//Криви на Безие
     var bezier = document.getElementById('bezier');
     ctx = bezier.getContext('2d');
 
@@ -273,7 +273,7 @@
       ctx.restore();
     }
 
-    // Квадратични криви
+// Квадратични криви
     var quadratic = document.getElementById('quadratic');
     ctx = quadratic.getContext('2d');
     //stroke a quadratic curve
@@ -312,7 +312,61 @@
       ctx.restore();
     }
 
+//Работа с текст
+    var cnvtxt = document.getElementById('cnvtxt');
+    ctx = cnvtxt.getContext('2d');
 
+    ctx.fillText('Текст с настройки по подразбиране (10pt black)', 10, 10);
+    ctx.strokeText('Текст с настройки по подразбиране (10pt black)', 10, 20);
+
+    ctx.font = '25pt Georgia';
+    ctx.fillStyle = 'green';
+    ctx.fillText('25pt Georgia green', 10, 48);
+    ctx.strokeStyle = 'rgba(0 192, 0, 0.5)';
+    ctx.strokeText('25pt Georgia rgba', 10, 140);
+    ctx.font = '25pt Verdana red';
+    ctx.fillStyle = 'red';
+    ctx.fillText('25 pt Verdana red', 10, 180);
+
+
+
+
+
+
+
+    //Бзова линия за txtBaseline
+    ctx.strokeStyle = '#f00';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(410, 140);
+    ctx.lineTo(695, 140);
+    ctx.stroke();
+
+    ctx.font ='18pt Ariel';
+
+    ctx.fillStyle = '#000';
+    ctx.fillText('textBaseline', 280, 140, 240);
+
+    ctx.fillStyle = '#900';
+    ctx.fillText('alphabetic', 405, 140);
+
+    ctx.fillStyle = 'red';
+    ctx.textBaseline = 'top';
+    ctx.fillText('top', 505, 140);
+    ctx.textBaseline = 'middle';
+    ctx.fillStyle = 'green';
+    ctx.fillText('middle', 550, 140);
+    ctx.textBaseline = 'bottom';
+    ctx.fillStyle = 'blue';
+    ctx.fillText('bottom', 625, 140);
+
+    ctx.textBaseline = 'alphabetic';
+    ctx.font = '60px Menlo, Consolas, DejaVu Sans Mono, monospace';
+    ctx.fillStyle = 'yellow';
+    ctx.strokeStyle = '#000';
+    ctx.textAlign = 'center';
+    ctx.fillText('Здравейте', cnvtxt.width/2, cnvtxt.height/2);
+    ctx.strokeText('Здравейте', cnvtxt.width/2, cnvtxt.height/2);
 
 
 
@@ -350,8 +404,11 @@
 <h2>Криви на Безие</h2>
 <canvas id="bezier"  width="700" height="200"></canvas>
 
-<h2>Квадратични крижи</h2>
+<h2>Квадратични криви</h2>
 <canvas id="quadratic" width="700" height="200"></canvas>
+
+<h2>Работа с текст</h2>
+<canvas id="cnvtxt"   width="700" height="200"></canvas>
 
 
 </body>
