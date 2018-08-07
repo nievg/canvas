@@ -328,12 +328,6 @@
     ctx.fillStyle = 'red';
     ctx.fillText('25 pt Verdana red', 10, 180);
 
-
-
-
-
-
-
     //Бзова линия за txtBaseline
     ctx.strokeStyle = '#f00';
     ctx.lineWidth = 1;
@@ -346,10 +340,8 @@
 
     ctx.fillStyle = '#000';
     ctx.fillText('textBaseline', 280, 140, 240);
-
     ctx.fillStyle = '#900';
     ctx.fillText('alphabetic', 405, 140);
-
     ctx.fillStyle = 'red';
     ctx.textBaseline = 'top';
     ctx.fillText('top', 505, 140);
@@ -367,6 +359,95 @@
     ctx.textAlign = 'center';
     ctx.fillText('Здравейте', cnvtxt.width/2, cnvtxt.height/2);
     ctx.strokeText('Здравейте', cnvtxt.width/2, cnvtxt.height/2);
+
+//Сенки (creating shadows)
+    var shadows = document.getElementById('shadows');
+    ctx = shadows.getContext('2d');
+    //Сянка от правоъгълник
+    ctx.shadowBlur = 10;
+    ctx.shadowColor = '#000';
+    ctx.shadowOffsetX = 10;
+    ctx.shadowOffsetY = 10;
+    ctx.fillStyle = 'rgba(0, 0, 255, 1)';
+    ctx.fillRect(20, 20, 200, 100);
+    //Сянка под текст
+    ctx.fillStyle = 'green';
+    ctx.shadowColor = 'rgba(0, 100, 100, 0.7)';
+    ctx.shadowBlur = 5;
+    ctx.shadowOffsetX = 5;
+    ctx.shadowOffsetY = 5;
+    ctx.font = '25pt Georgia';
+    ctx.fillText('Здравейте', 250, 50);
+    //Сянка под линия
+    ctx.lineCap = 'round';
+    ctx.lineWidth = 25;
+    ctx.shadowColor = 'rgba(150, 0, 150, 0.9)';
+    ctx.shadowBlur = 15;
+    ctx.strokeStyle = 'red';
+    ctx.beginPath();
+    ctx.moveTo(250, 100);
+    ctx.lineTo(450, 100);
+    ctx.stroke();
+    //free tests
+    ctx.lineWidth = 15;
+    ctx.strokeStyle = 'red';
+    ctx.shadowColor = 'rgba(150, 0, 150, 0.9)';
+    ctx.shadowBlur = 15;
+    ctx.beginPath();
+    ctx.moveTo(20, 170);
+    ctx.lineTo(120, 170);
+    ctx.stroke();
+
+    ctx.strokeStyle = 'green';
+    ctx.shadowColor = 'rgba(0, 100, 0, 0.5)';
+    ctx.shadowOffsetX = 10;
+    ctx.shadowOffsetY = 10;
+    ctx.shadowBlur = 8;
+    ctx.beginPath();
+    ctx.moveTo(150, 170);
+    ctx.lineTo(250, 170);
+    ctx.stroke();
+
+    ctx.strokeStyle = 'blue';
+    ctx.shadowColor = 'rgba(0, 0, 100, 0.5)';
+    ctx.shadowOffsetX = -5;
+    ctx.shadowOffsetY = -5;
+    ctx.shadowBlur = 8;
+    ctx.beginPath();
+    ctx.moveTo(280, 170);
+    ctx.lineTo(380, 170);
+    ctx.stroke();
+
+    //сенки и текстове
+    ctx.font = "20pt Sans-serif";
+    ctx.fillStyle = '#000';
+    ctx.fillText('blur x y opacity', 500, 30);
+    ctx.fillStyle = 'red';
+    ctx.fillText('8 -5,-5 trans .5', 500, 70);
+
+    ctx.fillStyle = 'green';
+    ctx.shadowColor = 'rgba(50, 50, 500, 0.9)';
+    ctx.shadowBlur = 5;
+    ctx.shadowOffsetX = 5;
+    ctx.shadowOffsetY = 0;
+    ctx.fillText('5 5 0 ops .9', 500, 110);
+
+    ctx.fillStyle = 'blue';
+    ctx.shadowColor = 'rgba(20, 20, 20, 0.9)';
+    ctx.shadowBlur = 3;
+    ctx.shadowOffsetX = 5;
+    ctx.shadowOffsetY = 3;
+    ctx.fillText('3 5 3 ops .9', 500, 150);
+
+    ctx.fillStyle = 'yellow';
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+    ctx.shadowBlur = 5;
+    ctx.shadowOffsetX = 0;
+    ctx.shadowOffsetY = 5;
+    ctx.fillText('5 0 5 ops .5', 500, 190);
+
+
+
 
 
 
@@ -410,6 +491,8 @@
 <h2>Работа с текст</h2>
 <canvas id="cnvtxt"   width="700" height="200"></canvas>
 
+<h2>Сенки (shadows)</h2>
+<canvas id="shadows" width="700" height="200"></canvas>
 
 </body>
 </html>
