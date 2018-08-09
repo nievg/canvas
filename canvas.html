@@ -381,8 +381,10 @@
     //Сянка под линия
     ctx.lineCap = 'round';
     ctx.lineWidth = 25;
-    ctx.shadowColor = 'rgba(150, 0, 150, 0.9)';
+    ctx.shadowColor = 'rgba(150, 0, 150, 0.5)';
     ctx.shadowBlur = 15;
+    ctx.shadowOffsetX = -15;
+    ctx.shadowOffsetY = -15;
     ctx.strokeStyle = 'red';
     ctx.beginPath();
     ctx.moveTo(250, 100);
@@ -391,8 +393,10 @@
     //free tests
     ctx.lineWidth = 15;
     ctx.strokeStyle = 'red';
-    ctx.shadowColor = 'rgba(150, 0, 150, 0.9)';
+    ctx.shadowColor = 'rgba(150, 0, 150, 0.4)';
     ctx.shadowBlur = 15;
+    ctx.shadowOffsetX = -8;
+    ctx.shadowOffsetY = -8;
     ctx.beginPath();
     ctx.moveTo(20, 170);
     ctx.lineTo(120, 170);
