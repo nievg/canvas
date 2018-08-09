@@ -6,3 +6,4 @@ https://www.youtube.com/watch?v=gp_QlX5xH5k&list=PLpY_9m7gHQDgKMb4U2u8X8JU0lDlCY
 
 
 В урок 16 има сериозна грешка относно положителната поска на въртене, а методът arcTo() въобще не е разгледан в пример
+Поздрави и от мен
