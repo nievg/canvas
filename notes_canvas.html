@@ -308,5 +308,27 @@
       <span class="val">'<span class="org">no-repeat</span>/repeat/repeat-x/repeat-y'</span><span class="prop">)</span>
   </p>
 
+  <h2>Градиенти (gradients)</h2>
+  <p>
+    ctx.<span class="prop">createLinearGradient(<span class="org">x0, y0,</span> x1, y1)</span>
+    - x0, y0 - начална точка на градиента x1, y1 - крайна точка на градиента
+  </p>
+  <p>
+    ctx.<span class="prop">createRadialGradient(<span class="org">x0, y0, r0,</span> x1, y1, r1)</span>
+    - x0, y0, r0 - определя вътрешния кръг на градиента, x1, y1, r1 - външен кръг на градиента
+  </p>
+  <p>
+    grad.<span class="prop">addColorStop(position, color)</span>
+    - позиция на цвета в реда на градиента от 0 до 1 и цвят
+  </p>
+  <p>
+    <span class="org">ВАЖНО!!!</span> Шаблоните и градиентите засягат цялата
+    площ на canvas елемента. Ако нарисуваме две еднакви фигури в различни части
+    на canvas градиента им ще бъде различен защото те показват градинта в устъка,
+    в който са нарисувани. Все едно във Фотошоп да има градиент в background-а,
+    а върху него да има непрозрачен слой. Ако се изтрият квадрати в различни
+    места в непрозрачния леър ще се види част от градиента на background-а.
+  </p>
+
 </body>
 </html>
