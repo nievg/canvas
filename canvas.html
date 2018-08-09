@@ -450,12 +450,52 @@
     ctx.shadowOffsetY = 5;
     ctx.fillText('5 0 5 ops .5', 500, 190);
 
+//Patterns
+  var patterns = document.getElementById('patterns');
+  ctx = patterns.getContext('2d');
+
+  var img = new Image();
+  img.src = 'resources/lamp_24.png';
+  img.onload = function(){
+    ctx.strokeStyle = 'green';
+    ctx.lineWidth = 1;
+    ctx.fillStyle = ctx.createPattern(img, 'repeat-y');
+    ctx.fillRect(  10, 10, 200, 100);
+    ctx.strokeRect(10, 10, 200, 100);
+    ctx.fillStyle = ctx.createPattern(img, 'repeat-x');
+    ctx.fillRect(  220, 10, 100, 180);
+    ctx.strokeRect(220, 10, 100, 180);
+    ctx.fillStyle = ctx.createPattern(img, 'repeat');
+    ctx.fillRect(10, 120, 200, 70);
+    ctx.strokeRect(10, 120, 200, 70);
+  }
+  var img2 = new Image();
+  img2.src = 'resources/lamp_16.png';
+  img2.onload = function(){
+    ctx.lineWidth = 8;
+    ctx.strokeStyle = ctx.createPattern(img2, 'repeat');
+    ctx.strokeRect(340, 10, 100, 100);
+  }
+
+  //shablon
+  var shablon = document.getElementById('shablon'),
+      ctx1 = shablon.getContext('2d');
+      ctx1.fillStyle = '#f0f033';//'#e5c07b';
+      ctx1.fillRect(0, 0, 25, 25);
+      ctx1.strokeStyle = '#700';//'#282c34';
+      ctx1.lineWidth = 10;
+      ctx1.moveTo(0, 0);
+      ctx1.lineTo(25, 25);
+      ctx1.stroke();
+
+      ctx.strokeStyle = ctx.createPattern(shablon, 'repeat');
+      ctx.lineWidth = 10;
+      ctx.strokeRect(490, 13, 200, 120);
+      //ctx.strokeRect(5, 5, 690, 190);
 
 
 
-
-
-    }
+  }
   </script>
 </head>
 <body>
@@ -497,6 +537,10 @@
 
 <h2>Сенки (shadows)</h2>
 <canvas id="shadows" width="700" height="200"></canvas>
+
+<h2>Шаблони (patterns)</h2>
+<canvas id="patterns" width="700" height="200"></canvas>
+<canvas id="shablon" width="25" height="25" style="display: none;"></canvas>
 
 </body>
 </html>

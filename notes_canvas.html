@@ -26,24 +26,38 @@
 
   <h2>Свойства на canvas</h2>
   <p>
-    theCanvas.<span class="prop">width</span> = <span class="val">400</span>;
-    - задава широчината на платното
-  </p>
-
-  <p>
-      theCanvas.<span class="prop">height</span> = <span class="val">200</span>;
-      - задава височината на платното
-  </p>
-
-  <p>
     ctx.<span class="prop">canvas.width</span>
     - съхранява широчината на платното
   </p>
-
   <p>
     ctx.<span class="prop">canvas.height</span>
     - съхранява височина на платното
   </p>
+  <p>
+    theCanvas.<span class="prop">width</span> = <span class="val">400</span>;
+    - задава широчината на платното
+  </p>
+  <p>
+      theCanvas.<span class="prop">height</span> = <span class="val">200</span>;
+      - задава височината на платното
+  </p>
+  <p>
+    theCanvas.<span class="prop">width</span> =
+    <span class="htm">window</span>.<span class="org">innerWidth</span>
+    - платното става широко колкото прозореца
+  </p>
+  <p>
+    theCanvas.<span class="prop">height</span> =
+    <span class="htm">window</span>.<span class="org">innerHeight</span>
+    - платното става високо колкото прозореца
+  </p>
+  <p>
+    <span class="fnc">display</span>:
+    <span class="org">block</span>;
+    това css свойство зададено на canvas премахва скролбаровете
+  </p>
+
+
 
   <h2>Цвят на контур и запълване, широчина на линия</h2>
   <p>
@@ -81,8 +95,6 @@
 
 
   <h2>Рисуване на линии</h2>
-
-
   <p>
     ctx.<span class="prop">lineWidth</span>
     = <span class="val">5</span>
@@ -91,13 +103,13 @@
 
   <p>
     ctx.<span class="prop">lineCap</span>
-    = <span class="val">"butt/round/square";</span>
+    = <span class="val">"<span class="org">butt</span>/round/square";</span>
     - указва как да завършва линията butt is default
   </p>
 
   <p>
     ctx.<span class="prop">lineJoin</span>
-    = <span class="val">"round/bevel/miter</span>(default)<span class="val">";</span>
+    = <span class="val">"round/bevel/<span class="org">miter</span></span>(default)<span class="val">";</span>
     - указва как се свързват краищата на линиите
   </p>
 
@@ -290,8 +302,11 @@
     - отмества сянката от обекта надолу или нагоре(отрицателни стойности)
   </p>
 
-
-
+  <h2>Използвшане на шаблони (patterns)</h2>
+  <p>
+    <span class="prop">ctx.createPattern(element,</span>
+      <span class="val">'<span class="org">no-repeat</span>/repeat/repeat-x/repeat-y'</span><span class="prop">)</span>
+  </p>
 
 </body>
 </html>
